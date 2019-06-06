@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$#" -eq "0" ]
+then
+	#DOTHIS=tor-browser
+elif [ "$#" -eq "1" ]
+then
+	#cat /home/darapsas/.links | awk -v escape="$1" '// { print \$1 }'
+	#DOTHIS="tor-browser $THELINK"
+	#$THELINK
+else
+	#DOTHIS="echo \"too many arguments\""
+fi

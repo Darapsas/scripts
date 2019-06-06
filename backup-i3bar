@@ -1,0 +1,77 @@
+#!/bin/bash
+
+echo '{"version":1}'
+echo '['
+echo '[]'
+
+while :;
+do
+
+	echo ',['
+
+		# Title Bar
+		echo "{\"full_text\":\"$(exec title-bar.sh)\",\"color\":\"#303030\",\"min_width\":650,\"align\":\"center\",\"background\":\"#989898\",\"separator\":false,\"separator_block_width\":6}"
+
+		# Kernel:
+		#echo '{\"full_text\":\"KERNEL\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${kernel}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Download:
+		#echo '{\"full_text\":\"DOWN\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${downspeed wlo1}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Upload:
+		#echo '{\"full_text\":\"UP\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${upspeed wlo1}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# CPU temperature:
+		#echo '{\"full_text\":\"CPU TEMP\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${hwmon 1 temp 2}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":0},'
+		#echo '{\"full_text\":\"C°\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# GPU temperature:
+		#echo '{\"full_text\":\"GPU TEMP\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${exec nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":0},'
+		#echo '{\"full_text\":\"C°\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# CPU:
+		#echo '{\"full_text\":\"CPU\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${cpu cpu0}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":0},'
+		#echo '{\"full_text\":\"%\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# GPU memory:
+		#echo '{\"full_text\":\"GPU\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${exec nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":0},'
+		#echo '{\"full_text\":\"M\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Memory:
+		#echo '{\"full_text\":\"MEM\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${memeasyfree}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Disk space:
+		#echo '{\"full_text\":\"DRIVE\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${fs_free}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Volume:
+		#echo '{\"full_text\":\"SOUND\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${exec volume-level.sh}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Keyboard language:
+		#echo '{\"full_text\":\"LANG\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${exec xkblayout-state print \"%s\"}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Battery:
+		#echo '{\"full_text\":\"BAT\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${battery_short}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Date:
+		#echo '{\"full_text\":\"DATE\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${exec date +\"%F %a\"}\",\"color\":\"\#EEEEEE\",\"separator\":false,\"separator_block_width\":6},'
+
+		# Time:
+		#echo '{\"full_text\":\"TIME\",\"color\":\"\#989898\",\"separator\":false,\"separator_block_width\":6},'
+		#echo '{\"full_text\":\"${exec date +%T}\",\"color\":\"\#EEEEEE\",\"separator\":false}'
+
+	echo ']'
+	sleep 1
+done

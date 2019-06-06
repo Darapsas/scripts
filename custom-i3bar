@@ -1,0 +1,274 @@
+#!/bin/bash
+
+echo '{"version":1}'
+echo '['
+echo '[]'
+
+while :;
+do
+	
+	echo ',['
+
+		# Title Bar: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"$(exec title-bar.sh)\","
+			echo "\"separator_block_width\":6,"
+			echo "\"background\":\"#989898\","
+			echo "\"color\":\"#303030\","
+			echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":850"
+		echo '},'
+
+		# Internet status: ---------------------------------------------
+
+	
+		echo '{'
+			echo "\"full_text\":\"INT\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":30"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec internet-status.sh)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+
+		# CPU temperature: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"CPU,T\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":45"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec sensors | grep -i package |  awk 'NR==1 { print substr($4,2,2) "°C" }')\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+
+		# CPU: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"CPU\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":30"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec cpu-load.sh)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":55"
+		echo '},'
+
+		# Memory: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"MEM\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":30"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec free -m | awk 'NR==2 { print $7 "MB" }')\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":55"
+		echo '},'
+
+		# Disk space: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"DRIVE\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":45"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec df -a | awk '$6~/\/$/ { print substr($4/1000000,1,length($4)-3) "GB" }')\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":70"
+		echo '},'
+
+
+		# Brightness: ---------------------------------------------
+	
+		echo '{'
+			echo "\"full_text\":\"BRGHT\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":45"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec brightness-level.sh)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+
+		# Volume: ---------------------------------------------
+	
+		echo '{'
+			echo "\"full_text\":\"SOUND\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":45"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec volume-level.sh)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+
+		# Keyboard language: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"LANG\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec xkblayout-state print "%s")\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":25"
+		echo '},'
+
+		# Battery: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"BAT\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":30"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec acpi -b | awk 'NR==1 { gsub(",","",$4); print substr($3,1,1) " (" $4 ")" }')\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":70"
+		echo '},'
+
+		# Date: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"DATE\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec date +"%F %a")\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":120"
+		echo '},'
+
+		# Time: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"TIME\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":40"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(exec date +%T)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":65"
+		echo '}'
+
+		
+		cat /proc/stat | grep "cpu " > /tmp/cpu-load
+
+	echo ']'
+
+	sleep 1
+done

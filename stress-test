@@ -1,0 +1,1 @@
+sudo stress --cpu 4 --timeout 600s

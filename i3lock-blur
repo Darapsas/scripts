@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Full background image path
+IMAGE=/tmp/i3lock.png
+#ICON=/home/darapsas/Downloads/lock-filled.png
+# Get screen resolution
+#RESOLUTION=`xdpyinfo | grep dimensions | awk '{print $2}'`
+import -window root "$IMAGE"
+#ffmpeg -loglevel quiet -y -i $IMAGE -vf "gblur=sigma=8" $IMAGE
+
+#convert $IMAGE -scale 10% -scale 1000% $IMAGE
+convert "$IMAGE" -blur 0x8 "$IMAGE"
+#convert "$IMAGE" "$ICON" -gravity center -composite -matte "$IMAGE"
+
+i3lock -i "$IMAGE"
+
+rm "$IMAGE"

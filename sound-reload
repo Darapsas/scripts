@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pulseaudio -k
+sudo modprobe -r snd_hda_intel
+sudo modprobe snd_hda_intel
