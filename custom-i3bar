@@ -21,29 +21,6 @@ do
 			echo "\"min_width\":850"
 		echo '},'
 
-		# Internet status: ---------------------------------------------
-
-	
-		echo '{'
-			echo "\"full_text\":\"INT\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#ffffff\","
-			echo "\"color\":\"#989898\","
-			#echo "\"align\":\"center\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":30"
-		echo '},'
-	
-		echo '{'
-			echo "\"full_text\":\"$(exec internet-status.sh)\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#989898\","
-			echo "\"color\":\"#FFFFFF\","
-			echo "\"align\":\"left\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":40"
-		echo '},'
-
 		# CPU temperature: ---------------------------------------------
 
 		echo '{'
@@ -132,73 +109,6 @@ do
 			echo "\"min_width\":70"
 		echo '},'
 
-
-		# Brightness: ---------------------------------------------
-	
-		echo '{'
-			echo "\"full_text\":\"BRGHT\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#ffffff\","
-			echo "\"color\":\"#989898\","
-			#echo "\"align\":\"center\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":45"
-		echo '},'
-	
-		echo '{'
-			echo "\"full_text\":\"$(exec brightness-level.sh)\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#989898\","
-			echo "\"color\":\"#FFFFFF\","
-			echo "\"align\":\"left\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":40"
-		echo '},'
-
-		# Volume: ---------------------------------------------
-	
-		echo '{'
-			echo "\"full_text\":\"SOUND\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#ffffff\","
-			echo "\"color\":\"#989898\","
-			#echo "\"align\":\"center\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":45"
-		echo '},'
-	
-		echo '{'
-			echo "\"full_text\":\"$(exec volume-level.sh)\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#989898\","
-			echo "\"color\":\"#FFFFFF\","
-			echo "\"align\":\"left\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":40"
-		echo '},'
-
-		# Keyboard language: ---------------------------------------------
-
-		echo '{'
-			echo "\"full_text\":\"LANG\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#ffffff\","
-			echo "\"color\":\"#989898\","
-			#echo "\"align\":\"center\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":40"
-		echo '},'
-	
-		echo '{'
-			echo "\"full_text\":\"$(exec xkblayout-state print "%s")\","
-			echo "\"separator_block_width\":0,"
-			#echo "\"background\":\"#989898\","
-			echo "\"color\":\"#FFFFFF\","
-			echo "\"align\":\"left\","
-			echo "\"separator\":false,"
-			echo "\"min_width\":25"
-		echo '},'
-
 		# Battery: ---------------------------------------------
 
 		echo '{'
@@ -243,6 +153,72 @@ do
 			echo "\"min_width\":120"
 		echo '},'
 
+		# Day of the year: -------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"DAY\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":20"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(date +%j)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":20"
+		echo '},'
+
+		# China Time: ------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"CHINA\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":25"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(TZ='Asia/Hong_Kong' date +%T)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":65"
+		echo '},'
+
+		# ET Time: ---------------------------------------------
+
+		echo '{'
+			echo "\"full_text\":\"ET\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#ffffff\","
+			echo "\"color\":\"#989898\","
+			#echo "\"align\":\"center\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":20"
+		echo '},'
+	
+		echo '{'
+			echo "\"full_text\":\"$(TZ='America/New_York' date +%T)\","
+			echo "\"separator_block_width\":0,"
+			#echo "\"background\":\"#989898\","
+			echo "\"color\":\"#FFFFFF\","
+			echo "\"align\":\"left\","
+			echo "\"separator\":false,"
+			echo "\"min_width\":65"
+		echo '},'
+
 		# Time: ---------------------------------------------
 
 		echo '{'
@@ -256,7 +232,7 @@ do
 		echo '},'
 	
 		echo '{'
-			echo "\"full_text\":\"$(exec date +%T)\","
+			echo "\"full_text\":\"$(date +%T)\","
 			echo "\"separator_block_width\":0,"
 			#echo "\"background\":\"#989898\","
 			echo "\"color\":\"#FFFFFF\","
@@ -264,7 +240,6 @@ do
 			echo "\"separator\":false,"
 			echo "\"min_width\":65"
 		echo '}'
-
 		
 		cat /proc/stat | grep "cpu " > /tmp/cpu-load
 
